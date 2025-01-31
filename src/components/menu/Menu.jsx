@@ -1,26 +1,27 @@
 import './Menu.css';
 import logoImg from '../../assets/logoMenor.png';
 import { House, CalendarBlank, Note, SignOut } from '@phosphor-icons/react';
-import { getName } from '../../script/get-info';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import ModalRelatorio from '../modal-relatorio/ModalRelatorio';
 import { logout } from '../../script/server-login';
 
 
 export default function Menu() {
-    const name = getName();
+    const location = useLocation();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
+    const existinUserName = location.state?.user || null;
+    
     return (
         <>
             <section id="menu-section" className="section">
                 <div className="warper">
                     <header id="menu-header" className="header">
                         <img src={logoImg} alt="Logo" id="menu-logo" className="logo" />
-                        <h1 id="menu-title" className="title">Olá, {name} </h1>
+                        <h1 id="menu-title" className="title">Olá, {existinUserName ? existinUserName.NOME : " Seja Bem Vindo"} </h1>
                         <h2 id="menu-subtitle" className="subtitle">Organize e controle suas reservas</h2>
                     </header>
                     <main id="menu-main" className="main">

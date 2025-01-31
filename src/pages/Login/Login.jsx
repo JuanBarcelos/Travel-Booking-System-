@@ -17,11 +17,12 @@ function Login() {
         e.preventDefault();
 
         const isAuthenticated = await isAuthenticatedUser(username,password);
+        const user = isAuthenticated.user || {};
 
         if (isAuthenticated) {
             toast.success(isAuthenticated.message);
             await getAll();
-            navigate('/dashboard') 
+            navigate('/dashboard', { state: {user}}) 
         }
         else{
             toast.error("Usuário ou senha errada.")

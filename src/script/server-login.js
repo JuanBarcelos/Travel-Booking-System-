@@ -21,7 +21,7 @@ export const isAuthenticatedUser = async (userName, password) => {
             const token = generateToken(user.user);
             localStorage.setItem("user", JSON.stringify(user));
             localStorage.setItem("authToken", token);
-            return { success: true, message: "Login realizado com sucesso!" };
+            return { success: true, message: "Login realizado com sucesso!", user };
         }
     } catch (error) {
         console.log("Erro ao tentar fazer login:", error);
