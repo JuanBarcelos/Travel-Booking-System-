@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getName = () => {
     const user = JSON.parse(localStorage.getItem('user'));
-    return user.nome;
+    return user.NOME;
 }
 
 export const getBookings = () => {

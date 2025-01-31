@@ -13,7 +13,7 @@ const generateToken = (username) => {
 export const isAuthenticatedUser = async (userName, password) => {
     try {
         const response = await axios.get(`
-            https://sheetdb.io/api/v1/2fmj1ybi9hf0s/search?sheet=Login&user=${userName}&password=${password}
+            https://sheetdb.io/api/v1/2fmj1ybi9hf0s/search?sheet=Login&USERNAME=${userName}&SENHA=${password}
         `);
 
         if(response.data.length > 0) {
