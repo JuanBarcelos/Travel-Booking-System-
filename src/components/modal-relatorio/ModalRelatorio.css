@@ -1,0 +1,130 @@
+.relatorio-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--Text-Color, #1A202C);
+}
+
+.relatorio-modal-content {
+    background: var(--bg-dash, #F7FAFC);
+
+    padding: 4rem;
+    border-radius: 2rem;
+
+    width: 90%;
+    max-width: 65.9rem;
+    height: 40.2rem;
+}
+
+.relatorio-modal-content .modal-warpper{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 6.4rem;
+
+    width: 100%;
+    height: 100%;
+}
+
+.relatorio-modal-content .modal-warpper .modal-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    align-self: stretch;
+
+    text-align: start;
+}
+
+.relatorio-modal-content .modal-warpper .modal-main .modal-title {
+    font-family: Inter;
+    font-style: normal;
+    line-height: normal;
+
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.relatorio-modal-content .modal-warpper .modal-main .modal-title h2{
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+.relatorio-modal-content .modal-warpper .modal-main .modal-title h3{
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+.relatorio-modal-content .modal-warpper .modal-main p{
+    font-family: Roboto;
+    font-size: 1.6rem ;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.2rem;
+    text-align: justify; /* 137.5% */
+    align-self: stretch; 
+}
+
+.relatorio-modal-content .modal-warpper .btn-modal-relatorio{
+    border-radius: .6rem;
+    border: 1px solid var(--Text-Color, #1A202C);
+    background: var(--Text-Color, #1A202C);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: 22.5rem;
+    height: 4rem;
+
+    color: var(--bg-icon-primary, #FFF);
+    font-family: Inter;
+    font-size: 1.6rem;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+
+    cursor: pointer;
+}
+
+.btn-content{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.close-button {
+    border: 1px solid var(--Text-Color, #1A202C);
+    background-color: #1A202C;
+    color: var(--bg-icon-primary, #FFF);
+
+    padding: .5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: .5rem;
+
+    cursor: pointer;
+}
+
+.close-button:hover {
+    transition: 300ms;
+    border: 1px solid var(--Text-Color, #1A202C);
+    background-color: #F7FAFC;
+    color: #ff0000;
+}
