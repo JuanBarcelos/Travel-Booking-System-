@@ -6,7 +6,7 @@ export const deleteBooking = async (booking) => {
         const today = new Date().toLocaleDateString("pt-BR");
         const user = JSON.parse(localStorage.getItem("user")) || { nome: "Desconhecido" };
 
-        const newOservation = `Cancelado por ${user.nome} no dia ${today}  //  ${observation}`;
+        const newOservation = `Cancelado por ${user.NOME} no dia ${today}  //  ${observation}`;
 
         const newbooking = {
             status: "CANCELADO",
