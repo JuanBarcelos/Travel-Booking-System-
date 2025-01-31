@@ -11,7 +11,7 @@ export const createBooking = async (formData) => {
             id: bookingId,
             ...formData,
             dataAgendamento: currentDate,
-            operador: user.nome,
+            operador: user.NOME,
         };
 
         const response = await sendPostRequest(newBooking);
