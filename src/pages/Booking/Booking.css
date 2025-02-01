@@ -1,4 +1,13 @@
-#form-section{
+.booking-conatiner{
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    padding: 2rem 2rem 2rem 4rem; 
+}
+
+#booking-form-section {
     border-radius: 3rem;
     background: var(--bg-dash, #F7FAFC);
 
@@ -12,12 +21,10 @@
     align-items: center;
     justify-content: center;
 
-    height: 100%;
-
-    padding: 4rem 6.5rem;
+    padding: 2rem 6.5rem;
 }
 
-#form-section h2{
+#booking-form-section  h2{
     border-bottom: 1px solid #000;
 
     font-size: 2rem;
@@ -33,9 +40,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
 
-    padding-top: 2rem;
+    padding-top: 1rem;
 
     width: 100%;
 }
@@ -45,7 +52,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1.8rem;
+    gap: 1rem;
 }
 
 .form-inputs-content{
@@ -54,34 +61,32 @@
     gap: 4rem;
 }
 
-.form-inputs-content .input-group {
+.form-inputs-content .booking-input-group {
     width: 100%;
 }
 
-.form-inputs-content .input-group input{
-    width: 100%;
-}
 
-.input-group{
+
+.booking-input-group{
     display: flex;
     flex-direction: column;
     align-items: baseline;
     gap: .8rem;
 }
 
-.input-group label{
+.booking-input-group label{
     padding-left: .8rem;
     font-family: Roboto;
     font-size: 1.4rem;
     font-weight: 400;
 }
 
-.input-group input{
+.booking-input-group input{
     border-radius: 1rem;
     border: 1px solid var(--Stroke-Input, #CBD5E0);
     background: #FFF;
 
-    width: 58rem;
+    width: 100%;
     height: 4rem;
 
     padding-left: 1.6rem;
@@ -90,7 +95,7 @@
     outline: 0;
 }
 
-.input-group textarea{
+.booking-input-group textarea{
     border-radius: 1rem;
     border: 1px solid var(--Stroke-Input, #CBD5E0);
     background: var(--bg-icon-primary, #FFF);
@@ -135,68 +140,38 @@
     background: #26DC72;
     transition: 500ms;
 }
-
-/* Para telas menores que 768px (celulares) */
-@media (max-width: 900px) {
-    body{
+    /* pag booking */
+@media screen and (max-width: 912px) {
+    .booking-conatiner{
         padding: 2rem;
-        height: 100%;
+        flex-direction: column;
+        flex-wrap: nowrap;
     }
 
-    #menu-section {
-        padding-bottom: 0;
+    footer{
+        margin-bottom: 2rem;
     }
 
     #menu-main{
-        margin-top: 3.2rem;
+        margin-block: 2rem;    
     }
 
     #menu-navigation ul{
         flex-direction: row;
-        gap: 2rem;
-    }
-
-    footer{
-        margin-block: 2rem;
-    }
-
-    #booking-form{    
-        padding-top: 2rem;
-    }
-
-    .form-inputs-container{
-        width: 60rem;
     }
 }
 
-/* Para telas menores que 480px (celulares pequenos) */
-@media (max-width: 480px) {
-    body {
-        flex-wrap: nowrap;
+@media screen and (max-width: 430px) {
+    #booking-form-section{
+        padding: 2rem;
+    }
+
+    .form-inputs-content{
         flex-direction: column;
-    }
-
-    #menu-section{
-        justify-content: center;
-
-        padding-bottom: 0;
-    }
-
-    .form-inputs-container {
-        width: 90%;
-    }
-
-    .form-inputs-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .input-group input {
-        width: 100%;
+        gap: 1.8rem;
     }
 
     #menu-navigation ul{
         flex-direction: column;
-        gap: 2rem;
     }
 }

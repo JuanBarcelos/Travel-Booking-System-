@@ -42,7 +42,7 @@ function Login() {
                         <h2>Faça login para gerenciar suas reservas</h2>
                         <form id="login-form">
                             <div className="login-inputs-container">
-                                <div className="input-group">
+                                <div className="login-input-group">
                                     <label htmlFor="username">Usuário</label>
                                     <div className="login-input-icon">
                                         <div className="i">
@@ -58,7 +58,7 @@ function Login() {
                                         />
                                     </div>
                                 </div>
-                                <div className="input-group">
+                                <div className="login-input-group">
                                     <label htmlFor="password">Senha</label>
                                     <div className="login-input-icon">
                                         <div className="i">

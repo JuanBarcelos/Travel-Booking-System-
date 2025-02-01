@@ -12,8 +12,8 @@ html {
 
 body {
     width: 100%;
-    height: 100vh;
     font-size: 1.6rem;
+    background: var(--Text-Color, #1A202C);
 }
 
 .conatiner{
@@ -21,11 +21,8 @@ body {
     height: 100vh;
     background: var(--Text-Color, #1A202C);
 
-    font-size: 1.6rem;
-
     display: flex;
     flex-wrap: wrap;
 
     padding: 2rem 2rem 2rem 4rem; 
 }
-  

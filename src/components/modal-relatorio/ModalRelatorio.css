@@ -128,3 +128,38 @@
     background-color: #F7FAFC;
     color: #ff0000;
 }
+
+@media screen and (max-width: 430px) {
+    .relatorio-modal-content { 
+        height: auto;
+        padding: 2rem;
+    }
+
+    .relatorio-modal-content .modal-warpper {
+        gap: 2.4rem;
+    }
+
+    .relatorio-modal-content .modal-warpper .modal-main {
+        gap: 2rem;
+    }
+
+    .relatorio-modal-content .modal-warpper .modal-main .modal-title h2 {
+        font-size: 2rem;
+    }
+    .relatorio-modal-content .modal-warpper .modal-main .modal-title h3{
+        font-size: 1.6rem;
+    }
+
+    .relatorio-modal-content .modal-warpper .modal-main p{
+        font-size: 1.4rem;
+    }
+
+    .relatorio-modal-content .modal-warpper .btn-modal-relatorio{
+        width: 15rem;
+        font-size: 1.4rem;
+    }
+
+    .close-button {
+        padding: .2rem;
+    }
+}

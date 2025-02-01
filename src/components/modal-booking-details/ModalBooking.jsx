@@ -1,32 +1,9 @@
-import { useNavigate } from 'react-router-dom';
-import { deleteBooking } from '../../script/delete-booking';
 import './ModalBooking.css';
 import { X } from '@phosphor-icons/react';
 import { formatDate } from '../../script/server-booking';
-import { toast } from 'react-toastify';
 
 export default function ModalBooking({ booking, onClose }) {
-    const navigate = useNavigate();
     const dataServico = formatDate(booking.dataServico);
-
-    // Redireciona com os dados da reserva
-    const handleEditBooking = () => {
-        navigate("/booking", { state: { booking } }); 
-    };
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        const response = await deleteBooking(booking);
-
-        if(response.success) {
-            toast.success(response.message);
-            onClose();
-        } else {
-            toast.error(response.message);
-        }
-    }
-
     return (
         <>
             <div id="modal" className="modal">
@@ -99,14 +76,6 @@ export default function ModalBooking({ booking, onClose }) {
                                 <p className="title">Observações / Observations:</p>
                                 <p className="conteudo">{booking.observation}</p>
                             </div>
-                        </div>
-                        <div className="btn-detales">
-                            <button className="update" onClick={handleEditBooking}>
-                                Atualizar Reserva
-                            </button>
-                            <button className="delete" onClick={handleSubmit}>
-                                Cancelar Reserva
-                            </button>
                         </div>
                     </div>
                 </div>
