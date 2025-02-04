@@ -180,7 +180,7 @@ export default function Booking() {
                   id="dropoff"
                   type="text"
                   placeholder="Digite o local de desembarque"
-                  {...register("dropoof")}
+                  {...register("dropoff")}
                 />
               </div>
               <div className="booking-input-group">
