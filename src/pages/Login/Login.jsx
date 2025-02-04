@@ -5,11 +5,12 @@ import { useNavigate } from "react-router-dom";
 //import { handleLoginTest } from '../../script/server-login';
 import { useState } from 'react';
 import { isAuthenticatedUser  } from '../../script/server-login';
-import { getAll } from '../../script/get-info';
 import { toast } from 'react-toastify';
+import { useUser } from "../../context/UserContext";
 
 function Login() {
     const navigate = useNavigate();
+    const { setUser } = useUser(); 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -21,8 +22,8 @@ function Login() {
 
         if (isAuthenticated) {
             toast.success(isAuthenticated.message);
-            await getAll();
-            navigate('/dashboard', { state: {user}}) 
+            setUser(user)
+            navigate('/dashboard') 
         }
         else{
             toast.error("Usuário ou senha errada.")

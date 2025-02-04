@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export const getName = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     return user.NOME;
@@ -18,7 +16,7 @@ export const getBookings = () => {
     return todaysBookings;
 }
 
-export const getAll = async () => {
+/*export const getAll = async () => {
     try {
         const response = await axios.get('https://sheetdb.io/api/v1/2fmj1ybi9hf0s');
         const bookings = response.data;
@@ -31,9 +29,8 @@ export const getAll = async () => {
             ))
    
         }
-         */
     } catch (error) {
         console.log("Erro ao enviar requisição PATCH:", error);
         return { success: false, message: "Erro ao cancelar a reserva." };
     }
-}
+}*/

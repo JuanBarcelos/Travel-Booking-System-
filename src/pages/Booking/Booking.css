@@ -140,6 +140,9 @@
     background: #26DC72;
     transition: 500ms;
 }
+.formError{
+    color: red;
+}
     /* pag booking */
 @media screen and (max-width: 912px) {
     .booking-conatiner{
