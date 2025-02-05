@@ -6,32 +6,32 @@ export default function CardBooking({ onClick, Bookings }) {
     <div className="booking-container">
       {Bookings.map((booking) => (
         <div
-          key={booking.id}
+          key={booking.ID}
           className="booking-content"
           onClick={() => onClick(booking)}
         >
           <div className="booking-warpper">
             <div className="booking-hearder">
               <div className="title">
-                <span>{booking.solicitante}</span>
+                <span>{booking.REQUESTING}</span>
                 <p className="booking-timer">
                   <Clock size={24} />
-                  {booking.horaServico}
+                  {booking.SERVICE_HOUR}
                 </p>
               </div>
-              <p className="booking-code">{booking.id}</p>
+              <p className="booking-code">{booking.ID}</p>
             </div>
             <div className="destination">
-              <p>{booking.pickup}</p>
+              <p>{booking.PICKUP}</p>
               <Car size={24} />
-              <p>{booking.dropoff}</p>
+              <p>{booking.DROPOFF}</p>
             </div>
             <div className="footer">
               <p>
                 <CalendarBlank size={24} />
-                {formatDate(booking.dataServico)}
+                {formatDate(booking.SERVICE_DATE)}
               </p>
-              <span>{booking.servico}</span>
+              <span>{booking.SERVICE_TYPE}</span>
             </div>
           </div>
         </div>

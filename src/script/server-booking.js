@@ -4,14 +4,14 @@ export const createBooking = (data, user) => {
   // Adiciona um ID único ao formulário (exemplo: "BF-123ABC")
   const bookingId = generateUniqueId();
   const currentDate = new Date().toLocaleDateString("pt-BR");
-  const dataServico = data.dataServico.toLocaleDateString("pt-BR")
+  const dataServico = data.SERVICE_DATE.toLocaleDateString("pt-BR")
 
   const newBooking = {
-    id: bookingId,
+    ID: bookingId,
     ...data,
-    dataAgendamento: currentDate,
-    operador: user.NOME,
-    dataServico: dataServico,
+    BOOKING_DATE: currentDate,
+    OPERATOR: user.NOME,
+    SERVICE_DATE: dataServico,
   };
 
   return newBooking;

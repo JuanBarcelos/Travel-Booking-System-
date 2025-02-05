@@ -32,66 +32,66 @@ export default function ModalBooking() {
             <div className="detales-container">
               <div className="detale-content">
                 <p className="title">Ordem de Serviço / Service Order:</p>
-                <p className="conteudo">{booking.id}</p>
+                <p className="conteudo">{booking.ID}</p>
               </div>
 
               <div className="detale-content">
                 <p className="title">Nome do Solicitante / Requester Name:</p>
-                <p className="conteudo">{booking.solicitante}</p>
+                <p className="conteudo">{booking.REQUESTING}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Nome do Cliente / Client Name:</p>
-                <p className="conteudo">{booking.cliente}</p>
+                <p className="conteudo">{booking.CUSTOMER_NAME}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Contato do Cliente / Client Contact:</p>
-                <p className="conteudo">{booking.contato}</p>
+                <p className="conteudo">{booking.CONTACT}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Data do Serviço / Service Date:</p>
-                <p className="conteudo">{booking.dataServico}</p>
+                <p className="conteudo">{booking.SERVICE_DATE}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Hora do Serviço / Service Time:</p>
-                <p className="conteudo">{booking.horaServico}</p>
+                <p className="conteudo">{booking.SERVICE_HOUR}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Número do Voo / Flight Number:</p>
-                <p className="conteudo">{booking.voo}</p>
+                <p className="conteudo">{booking.FLIGHT_NUMBER}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Local de Embarque / Pickup Location:</p>
-                <p className="conteudo">{booking.pickup}</p>
+                <p className="conteudo">{booking.PICKUP}</p>
               </div>
               <div className="detale-content">
                 <p className="title">
                   Local de Desembarque / Dropoff Location:
                 </p>
-                <p className="conteudo">{booking.dropoff}</p>
+                <p className="conteudo">{booking.DROPOFF}</p>
               </div>
               <div className="detale-content">
                 <p className="title">
                   Número de Passageiros / Number of Passengers:
                 </p>
-                <p className="conteudo">{booking.pax}</p>
+                <p className="conteudo">{booking.PAX_NUMBER}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Tipo de Serviço / Service Type:</p>
-                <p className="conteudo">{booking.servico}</p>
+                <p className="conteudo">{booking.SERVICE_TYPE}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Tipo de Veículo / Vehicle Type:</p>
-                <p className="conteudo">{booking.veiculo}</p>
+                <p className="conteudo">{booking.VEHICLE_TYPE}</p>
               </div>
               <div className="detale-content">
                 <p className="title">
                   Preferência de Motorista / Driver Preference:
                 </p>
-                <p className="conteudo">{booking.driver}</p>
+                <p className="conteudo">{booking.DRIVER_LANGUAGE}</p>
               </div>
               <div className="detale-content-observations">
                 <p className="title">Observações / Observations:</p>
-                <p className="conteudo">{booking.observation}</p>
+                <p className="conteudo">{booking.OBSERVATION}</p>
               </div>
             </div>
             {/* Botões de ação: Apenas aparecem no preview */}

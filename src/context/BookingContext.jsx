@@ -45,22 +45,22 @@ export const BookingProvider = ({ children }) => {
             const term = searchTerm.toLowerCase();
             return bookings.filter(
               (booking) =>
-                  booking.cliente?.toLowerCase().includes(term) ||
-                  booking.solicitante?.toLowerCase().includes(term) ||
-                  booking.pickup?.toLowerCase().includes(term) ||
-                  booking.id?.toLowerCase().includes(term) ||
-                  booking.dataServico?.toLowerCase().includes(term) ||
-                  booking.voo?.toLowerCase().includes(term) ||
-                  booking.servico?.toLowerCase().includes(term) ||
-                  booking.veiculo?.toLowerCase().includes(term) ||
-                  booking.status?.toLowerCase().includes(term) ||
-                  booking.operador?.toLowerCase().includes(term) ||
-                  booking.dropoff?.toLowerCase().includes(term)
+                  booking.CUSTOMER_NAME?.toLowerCase().includes(term) ||
+                  booking.REQUESTING?.toLowerCase().includes(term) ||
+                  booking.PICKUP?.toLowerCase().includes(term) ||
+                  booking.ID?.toLowerCase().includes(term) ||
+                  booking.SERVICE_DATE?.toLowerCase().includes(term) ||
+                  booking.FLIGHT_NUMBER?.toLowerCase().includes(term) ||
+                  booking.SERVICE_TYPE?.toLowerCase().includes(term) ||
+                  booking.VEHICLE_TYPE?.toLowerCase().includes(term) ||
+                  booking.STATUS?.toLowerCase().includes(term) ||
+                  booking.OPERATOR?.toLowerCase().includes(term) ||
+                  booking.DROPOFF?.toLowerCase().includes(term)
           );
         }
 
         // Se não houver busca, mostra apenas as reservas do dia
-        return bookings.filter((booking) => booking.dataAgendamento === today);
+        return bookings.filter((booking) => booking.BOOKING_DATE === today);
     }, [bookings, searchTerm]);
 
     // Mutação para adicionar uma nova reserva e atualizar o cache

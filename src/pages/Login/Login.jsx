@@ -84,7 +84,7 @@ function Login() {
                     </footer>
                 </section>
                 <section id="login-section-img">
-                    <img src={logoImg} alt="um fundo preto com uma aguia pintada com três cores, verde,amarela e azul" />
+                    <img src={logoImg} alt="um fundo preto com uma águia pintada com três cores, verde,amarela e azul" />
                 </section>
             </div>
         </>
