@@ -2,19 +2,14 @@ import "./Dashboard.css";
 import Menu from "../../components/menu/Menu";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import CardBooking from "../../components/card-booking/CardBooking";
-import { useState } from "react";
 import ModalBooking from "../../components/modal-booking-details/ModalBooking";
 import { useNavigate } from "react-router-dom";
 import { useBookings } from "../../context/BookingContext";
 
 function Dashboard() {
   const navigate = useNavigate();
-  const [selectedBooking, setSelectedBooking] = useState(null);
-  const { filteredBookings, isLoading, error, setSearchTerm } = useBookings();
+  const { filteredBookings, isLoading, error, setSearchTerm, openModal } = useBookings();
   
-  const openModal = (booking) => setSelectedBooking(booking);
-  const closeModal = () => setSelectedBooking(null);
-
   const handleBooking = () => {
     navigate("/booking");
   };
@@ -49,10 +44,8 @@ function Dashboard() {
             <main>
                 {isLoading ? <p>Carregando reservas...</p> : ''}
                 {error ? <p>Erro ao carregar reservas.</p> : ''}
-                <CardBooking onClick={openModal} Bookings={filteredBookings} />
-                {selectedBooking && (
-                  <ModalBooking booking={selectedBooking} onClose={closeModal} />
-                )}
+                <CardBooking onClick={(booking) => openModal(booking)} Bookings={filteredBookings} />
+                <ModalBooking />
             </main>
           </div>
         </section>

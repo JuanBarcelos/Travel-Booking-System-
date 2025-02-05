@@ -1,6 +1,8 @@
 import { createContext, useContext, useState, useMemo } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { useRef } from "react";
 
 const API_URL = "https://sheetdb.io/api/v1/2fmj1ybi9hf0s";
 
@@ -13,7 +15,14 @@ export const BookingProvider = ({ children }) => {
     
     // Estado para armazenar a busca e filtro
     const [searchTerm, setSearchTerm] = useState("");
-    
+    // Estado para armazenar o resumo da reserva antes da confirmação
+    const [previewData, setPreviewData] = useState(null);
+    const [isModalOpen, setModalOpen] = useState(false);
+    //Estado para armazenar o resumo da reserva já cadastrada
+    const [selectedBooking, setSelectedBooking] = useState(null);
+    // Função para resetar formulário
+    const resetFormRef = useRef(null);
+
     // Carregar as reservas com React Query
     const { data: bookings, isLoading, error } = useQuery({
         queryKey: ["bookings"],
@@ -65,6 +74,53 @@ export const BookingProvider = ({ children }) => {
         },
     });
 
+    // Função para abrir o modal com os dados da reserva antes da confirmação
+    const previewBooking = (data) => {
+        setPreviewData(data);
+        setModalOpen(true);
+        // Limpa reserva selecionada
+        setSelectedBooking(null);
+    };
+
+    // Fechar o modal
+    const closeModal = () => {
+        setModalOpen(false);
+        setSelectedBooking(null);
+        setPreviewData(null);
+    };
+
+    // Função para definir a função de reset do formulário
+    const setResetFunction = (resetFn) => {
+        resetFormRef.current = resetFn;
+    };
+
+     // Confirmar a reserva e fechar o modal
+     const confirmBooking = async () => {
+        if (!previewData) return;
+
+        addBooking.mutate(previewData, {
+            onSuccess: () => {
+                closeModal();
+                if(resetFormRef.current) {
+                    resetFormRef.current();
+                }
+                toast.success("Reserva cadastrada com sucesso!");
+            },
+            onError: () => {
+                closeModal();
+                toast.error("Erro ao cadastrar a reserva.");
+            }
+        });
+    };
+
+    // Função para abrir o modal com uma reserva específica
+    const openModal = (booking) => {
+        setSelectedBooking(booking);
+        setModalOpen(true);
+        // Limpa dados de preview
+        setPreviewData(null);
+    };
+
     return (
         <BookingContext.Provider
             value={{
@@ -74,6 +130,14 @@ export const BookingProvider = ({ children }) => {
                 error,
                 addBooking,
                 setSearchTerm,
+                previewBooking,
+                closeModal,
+                confirmBooking,
+                isModalOpen,
+                previewData,
+                selectedBooking,
+                openModal,
+                setResetFunction
             }}
         >
             {children}

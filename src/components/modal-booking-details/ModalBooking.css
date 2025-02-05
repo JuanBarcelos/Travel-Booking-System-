@@ -92,7 +92,7 @@
     gap: .4rem;
 }
 
-.btn-detales{
+.modal-actions{
     width: 100%;
     
     display: flex;
@@ -101,8 +101,8 @@
     gap: 1.6rem;
 }
 
-.btn-detales .update,
-.btn-detales .delete{
+.modal-actions .confirm-btn,
+.modal-actions .cancel-btn{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,11 +121,11 @@
     border: none;
 }
 
-.btn-detales .update{
+.modal-actions .confirm-btn{
     background: var(--btn-color, #48BB78);
 }
 
-.btn-detales .delete{
+.modal-actions .cancel-btn{
     background: var(--btn-color-red, #E53E3E);
 }
 

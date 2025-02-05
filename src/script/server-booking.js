@@ -46,38 +46,6 @@ export const createUser = async (formData) => {
   }
 };
 
-export const updateBooking = async (id, formData) => {
-  try {
-    const response = await sendUpdateBooking(formData, id);
-    if (response?.success) {
-      // 1. Recupera todas as reservas do localStorage
-      let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
-      // 2. Encontrar o índice da reserva a ser atualizada
-      const index = bookings.findIndex((booking) => booking.id === id);
-
-      if (index === -1) {
-        return { success: false, message: "Reserva não encontrada." };
-      }
-
-      // 3. Atualiza os dados da reserva mantendo o mesmo ID
-      bookings[index] = { ...bookings[index], ...formData };
-
-      // 4. Salva a lista atualizada no localStorage
-      localStorage.setItem("bookings", JSON.stringify(bookings));
-
-      return { success: true, message: "Reserva atualizada com sucesso!" };
-    } else {
-      return {
-        success: false,
-        message: "Erro ao atualizar reserva no servidor.",
-      };
-    }
-  } catch (error) {
-    console.log("Erro ao atualizar reserva:", error);
-    return { success: false, message: "Erro ao atualizar reserva." };
-  }
-};
-
 export const getCode = async (formData) => {
   try {
     const response = await sendGetCodeRequest(formData);
@@ -100,21 +68,6 @@ export const formatDate = (dateString) => {
 
   const [year, month, day] = dateString.split("-");
   return `${day}/${month}/${year}`;
-};
-
-const sendUpdateBooking = async (data, id) => {
-  try {
-    const response = await axios.patch(
-      `https://sheetdb.io/api/v1/2fmj1ybi9hf0s/id/${id}`,
-      { data }
-    );
-    return response?.data
-      ? { success: true, message: "Reserva cancelada com sucesso!" }
-      : { success: false };
-  } catch (error) {
-    console.log("Erro ao enviar requisição PATCH:", error);
-    return { success: false, message: "Erro ao cancelar a reserva." };
-  }
 };
 
 // Função para gerar um ID único no formato "BF-123ABC"

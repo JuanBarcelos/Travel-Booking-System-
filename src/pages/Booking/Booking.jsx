@@ -2,36 +2,36 @@ import "./Booking.css";
 import Menu from "../../components/menu/Menu";
 import { Plus } from "@phosphor-icons/react";
 import { createBooking } from "../../script/server-booking";
-import { toast } from "react-toastify";
+//import { toast } from "react-toastify";
 import { useUser } from "../../context/UserContext";
 import { useBookings } from "../../context/BookingContext";
 import { useForm } from "react-hook-form";
 import { bookingSchema } from "../../validations/bookingSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
+import ModalBooking from "../../components/modal-booking-details/ModalBooking";
+import { useEffect } from "react";
 
 export default function Booking() {
   const { user } = useUser();
-  const { addBooking } = useBookings();
+  const { previewBooking, setResetFunction  } = useBookings();
 
   const {
     register,
     handleSubmit,
     formState: {errors},
+    reset,
   } = useForm({
     resolver: yupResolver(bookingSchema)
   });
 
-  const onSubmit = async (data) => {
+  // Registrar a função de reset no contexto
+  useEffect (() => {
+    setResetFunction(() => reset());
+  }, [setResetFunction, reset]);
 
+  const onPreview = async (data) => {
     const newBooking = createBooking(data, user);
-
-    const response = await addBooking.mutateAsync(newBooking);
-
-    if(response){
-      toast.success("Agendamento realizado com sucesso");
-    }else{
-      toast.success("Erro ao realizar o agendamento");
-    }
+    previewBooking(newBooking);
   };
 
   return (
@@ -42,7 +42,7 @@ export default function Booking() {
           <h2 id="form-title" className="title">
             Agendamento Brummie
           </h2>
-          <form onSubmit={handleSubmit(onSubmit)}id="booking-form" className="form">
+          <form onSubmit={handleSubmit(onPreview)}id="booking-form" className="form">
             <div className="form-inputs-container">
               <div className="booking-input-group">
                 <label htmlFor="solicitante">
@@ -204,6 +204,7 @@ export default function Booking() {
             </div>
           </form>
         </section>
+        <ModalBooking />
       </div>
     </>
   );
