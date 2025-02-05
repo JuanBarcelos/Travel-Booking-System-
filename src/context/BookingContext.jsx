@@ -4,7 +4,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useRef } from "react";
 
-const API_URL = "https://sheetdb.io/api/v1/2fmj1ybi9hf0s";
+const sheetID = import.meta.env.VITE_SHEET_DB_ID;
+const API_URL = `https://sheetdb.io/api/v1/${sheetID}`;
 
 const BookingContext = createContext();
 

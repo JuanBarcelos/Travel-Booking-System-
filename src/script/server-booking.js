@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const sheetID = import.meta.env.VITE_SHEET_DB_ID;
+
 export const createBooking = (data, user) => {
   // Adiciona um ID único ao formulário (exemplo: "BF-123ABC")
   const bookingId = generateUniqueId();
@@ -89,7 +91,7 @@ const generateUniqueId = () => {
 
 const sendPostUserRequest = async (data) => {
   const response = await axios.post(
-    "https://sheetdb.io/api/v1/2fmj1ybi9hf0s/?sheet=Login",
+    `https://sheetdb.io/api/v1/${sheetID}/?sheet=Login`,
     { data }
   );
   return response?.data
@@ -99,7 +101,7 @@ const sendPostUserRequest = async (data) => {
 
 const sendGetCodeRequest = async (code) => {
   const response = await axios.get(
-    `https://sheetdb.io/api/v1/2fmj1ybi9hf0s/search?sheet=Autenticar&CODE=${code}`
+    `https://sheetdb.io/api/v1/${sheetID}/search?sheet=Autenticar&CODE=${code}`
   );
   return response?.data
     ? { success: true, message: "Autenticado com sucesso!" }
