@@ -47,7 +47,7 @@ export default function RegisterUser() {
                                     required
                                     name="CODE"
                                     type="text"
-                                    placeholder="Digite seu códifo enviado pela logística"
+                                    placeholder="Digite seu código enviado pela logística"
                                     value={formData.CODE}
                                     onChange={handleChange}
                                 />
