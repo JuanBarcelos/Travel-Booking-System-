@@ -1,8 +1,10 @@
+import { useBookings } from '../../context/BookingContext';
 import { generateTodaysBookingPDF } from '../../script/creat-pdf';
 import './ModalRelatorio.css';
 import { X } from '@phosphor-icons/react';
 
 export default function ModalRelatorio({ onClose }) {
+    const { bookings } = useBookings();
     return (
         <>
             <div id="relatorio-modal" className="relatorio-modal">
@@ -25,7 +27,7 @@ export default function ModalRelatorio({ onClose }) {
                                 Este relatório foi criado para facilitar o acompanhamento e a gestão das suas reservas diárias.
                             </p>
                         </div>
-                        <button className="btn-modal-relatorio" onClick={generateTodaysBookingPDF}>
+                        <button className="btn-modal-relatorio" onClick={() => generateTodaysBookingPDF(bookings)}>
                             Gerar Relatório
                         </button>
                     </div>

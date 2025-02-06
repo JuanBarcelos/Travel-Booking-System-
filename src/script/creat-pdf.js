@@ -3,17 +3,17 @@ import "jspdf-autotable";
 import { toast } from "react-toastify";
 
 // Função para gerar o PDF estilizado
-export const generateTodaysBookingPDF = () => {
+export const generateTodaysBookingPDF = (bookings) => {
   try {
     // Obtém a data de hoje no formato "DD/MM/AAAA"
     const today = new Date().toLocaleDateString("pt-BR");
 
     // Busca as reservas no localStorage
-    const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    const user = JSON.parse(localStorage.getItem("user")) || [];
 
     // Filtra apenas as reservas que são do dia atual
     const todaysBookings = bookings.filter(
-      (booking) => booking.dataAgendamento === today
+      (booking) => booking.BOOKING_DATE === today && booking.OPERATOR === user.NOME
     );
 
     if (todaysBookings.length === 0) {
@@ -53,22 +53,21 @@ export const generateTodaysBookingPDF = () => {
         startY: 60,
         head: [["Campo", "Informação"]],
         body: [
-          ["Código", booking.id],
-          ["Status", booking.status],
-          ["Solicitante", booking.solicitante],
-          ["Cliente", booking.cliente],
-          ["Contato", booking.contato || "Não informado"],
-          ["Data do Serviço", booking.dataServico],
-          ["Hora do Serviço", booking.horaServico],
-          ["Número do Voo", booking.voo || "Não informado"],
-          ["Número de Pax", booking.pax || "Não informado"],
-          ["Serviço", booking.servico],
-          ["Motorista", booking.driver || "Não informado"],
-          ["Veículo", booking.veiculo],
-          ["Embarque", booking.pickup],
-          ["Desembarque", booking.dropoff || "Não informado"],
-          ["Observações", booking.observation || "Nenhuma"],
-          ["Operador", booking.operador],
+          ["Código", booking.ID],
+          ["Solicitante", booking.REQUESTING],
+          ["Cliente", booking.CUSTOMER_NAME],
+          ["Contato", booking.CONTACT || "Não informado"],
+          ["Data do Serviço", booking.SERVICE_DATE],
+          ["Hora do Serviço", booking.SERVICE_HOUR],
+          ["Número do Voo", booking.FLIGHT_NUMBER || "Não informado"],
+          ["Número de Pax", booking.PAX_NUMBER || "Não informado"],
+          ["Serviço", booking.SERVICE_TYPE],
+          ["Motorista", booking.DRIVER_LANGUAGE || "Não informado"],
+          ["Veículo", booking.VEHICLE_TYPE],
+          ["Embarque", booking.PICKUP],
+          ["Desembarque", booking.DROPOFF || "Não informado"],
+          ["Observações", booking.OBSERVATION || "Nenhuma"],
+          ["Operador", booking.OPERATOR],
         ],
         theme: "grid",
         styles: { fontSize: 12, cellPadding: 3 },

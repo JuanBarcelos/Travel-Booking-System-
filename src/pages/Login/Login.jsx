@@ -2,7 +2,6 @@ import './Login.css';
 import logoImg from '../../assets/logo.png';
 import { User, LockSimple } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
-//import { handleLoginTest } from '../../script/server-login';
 import { useState } from 'react';
 import { isAuthenticatedUser  } from '../../script/server-login';
 import { toast } from 'react-toastify';
@@ -18,17 +17,15 @@ function Login() {
         e.preventDefault();
 
         const isAuthenticated = await isAuthenticatedUser(username,password);
-        const user = isAuthenticated.user || {};
+        const user = isAuthenticated?.user || {};
 
-        if (isAuthenticated) {
+        if (isAuthenticated.success === true) {
             toast.success(isAuthenticated.message);
             setUser(user)
             navigate('/dashboard') 
+        }else{
+            toast.error(isAuthenticated.message)
         }
-        else{
-            toast.error("Usuário ou senha errada.")
-        }
-        
     };
 
     return (
