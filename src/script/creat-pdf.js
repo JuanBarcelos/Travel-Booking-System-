@@ -13,7 +13,7 @@ export const generateTodaysBookingPDF = (bookings) => {
 
     // Filtra apenas as reservas que são do dia atual
     const todaysBookings = bookings.filter(
-      (booking) => booking.BOOKING_DATE === today && booking.OPERATOR === user.NOME
+      (booking) => booking.DATA_DO_AGENDAMENTO === today && booking.OPERADOR === user.NOME
     );
 
     if (todaysBookings.length === 0) {
@@ -54,20 +54,20 @@ export const generateTodaysBookingPDF = (bookings) => {
         head: [["Campo", "Informação"]],
         body: [
           ["Código", booking.ID],
-          ["Solicitante", booking.REQUESTING],
-          ["Cliente", booking.CUSTOMER_NAME],
-          ["Contato", booking.CONTACT || "Não informado"],
-          ["Data do Serviço", booking.SERVICE_DATE],
-          ["Hora do Serviço", booking.SERVICE_HOUR],
-          ["Número do Voo", booking.FLIGHT_NUMBER || "Não informado"],
-          ["Número de Pax", booking.PAX_NUMBER || "Não informado"],
-          ["Serviço", booking.SERVICE_TYPE],
-          ["Motorista", booking.DRIVER_LANGUAGE || "Não informado"],
-          ["Veículo", booking.VEHICLE_TYPE],
+          ["Solicitante", booking.SOLICITANTE],
+          ["Cliente", booking.CLIENTE],
+          ["Contato", booking.CONTATO || "Não informado"],
+          ["Data do Serviço", booking.DATA],
+          ["Hora do Serviço", booking.H_SERVICO],
+          ["Número do Voo", booking.VOO || "Não informado"],
+          ["Número de Pax", booking.PAX || "Não informado"],
+          ["Serviço", booking.SERVICO],
+          ["Motorista", booking.MONO_BILINGUE || "Não informado"],
+          ["Veículo", booking.VEICULO],
           ["Embarque", booking.PICKUP],
           ["Desembarque", booking.DROPOFF || "Não informado"],
-          ["Observações", booking.OBSERVATION || "Nenhuma"],
-          ["Operador", booking.OPERATOR],
+          ["Observações", booking.OBSERVACAO || "Nenhuma"],
+          ["Operador", booking.OPERADOR],
         ],
         theme: "grid",
         styles: { fontSize: 12, cellPadding: 3 },

@@ -37,27 +37,27 @@ export default function ModalBooking() {
 
               <div className="detale-content">
                 <p className="title">Nome do Solicitante / Requester Name:</p>
-                <p className="conteudo">{booking.REQUESTING}</p>
+                <p className="conteudo">{booking.SOLICITANTE}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Nome do Cliente / Client Name:</p>
-                <p className="conteudo">{booking.CUSTOMER_NAME}</p>
+                <p className="conteudo">{booking.CLIENTE}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Contato do Cliente / Client Contact:</p>
-                <p className="conteudo">{booking.CONTACT}</p>
+                <p className="conteudo">{booking.CONTATO}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Data do Serviço / Service Date:</p>
-                <p className="conteudo">{booking.SERVICE_DATE}</p>
+                <p className="conteudo">{booking.DATA}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Hora do Serviço / Service Time:</p>
-                <p className="conteudo">{booking.SERVICE_HOUR}</p>
+                <p className="conteudo">{booking.H_SERVICO}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Número do Voo / Flight Number:</p>
-                <p className="conteudo">{booking.FLIGHT_NUMBER}</p>
+                <p className="conteudo">{booking.VOO}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Local de Embarque / Pickup Location:</p>
@@ -73,25 +73,25 @@ export default function ModalBooking() {
                 <p className="title">
                   Número de Passageiros / Number of Passengers:
                 </p>
-                <p className="conteudo">{booking.PAX_NUMBER}</p>
+                <p className="conteudo">{booking.PAX}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Tipo de Serviço / Service Type:</p>
-                <p className="conteudo">{booking.SERVICE_TYPE}</p>
+                <p className="conteudo">{booking.SERVICO}</p>
               </div>
               <div className="detale-content">
                 <p className="title">Tipo de Veículo / Vehicle Type:</p>
-                <p className="conteudo">{booking.VEHICLE_TYPE}</p>
+                <p className="conteudo">{booking.VEICULO}</p>
               </div>
               <div className="detale-content">
                 <p className="title">
                   Preferência de Motorista / Driver Preference:
                 </p>
-                <p className="conteudo">{booking.DRIVER_LANGUAGE}</p>
+                <p className="conteudo">{booking.MONO_BILINGUE}</p>
               </div>
               <div className="detale-content-observations">
                 <p className="title">Observações / Observations:</p>
-                <p className="conteudo">{booking.OBSERVATION}</p>
+                <p className="conteudo">{booking.OBSERVACAO}</p>
               </div>
             </div>
             {/* Botões de ação: Apenas aparecem no preview */}

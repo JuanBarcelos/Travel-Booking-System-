@@ -2,18 +2,18 @@ import axios from "axios";
 
 const sheetID = import.meta.env.VITE_SHEET_DB_ID;
 
-export const createBooking = (data, user) => {
+export const createBooking = (booking, user) => {
   // Adiciona um ID único ao formulário (exemplo: "BF-123ABC")
   const bookingId = generateUniqueId();
   const currentDate = new Date().toLocaleDateString("pt-BR");
-  const dataServico = data.SERVICE_DATE.toLocaleDateString("pt-BR")
+  const dataServico = booking.DATA.toLocaleDateString("pt-BR")
 
   const newBooking = {
     ID: bookingId,
-    ...data,
-    BOOKING_DATE: currentDate,
-    OPERATOR: user.NOME,
-    SERVICE_DATE: dataServico,
+    ...booking,
+    DATA_DO_AGENDAMENTO: currentDate,
+    OPERADOR: user.NOME,
+    DATA: dataServico,
   };
 
   return newBooking;

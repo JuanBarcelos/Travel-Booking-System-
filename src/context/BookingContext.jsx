@@ -46,22 +46,22 @@ export const BookingProvider = ({ children }) => {
             const term = searchTerm.toLowerCase();
             return bookings.filter(
               (booking) =>
-                  booking.CUSTOMER_NAME?.toLowerCase().includes(term) ||
-                  booking.REQUESTING?.toLowerCase().includes(term) ||
+                  booking.CLIENTE?.toLowerCase().includes(term) ||
+                  booking.SOLICITANTE?.toLowerCase().includes(term) ||
                   booking.PICKUP?.toLowerCase().includes(term) ||
                   booking.ID?.toLowerCase().includes(term) ||
-                  booking.SERVICE_DATE?.toLowerCase().includes(term) ||
-                  booking.FLIGHT_NUMBER?.toLowerCase().includes(term) ||
-                  booking.SERVICE_TYPE?.toLowerCase().includes(term) ||
-                  booking.VEHICLE_TYPE?.toLowerCase().includes(term) ||
-                  booking.STATUS?.toLowerCase().includes(term) ||
-                  booking.OPERATOR?.toLowerCase().includes(term) ||
+                  booking.DATA?.toLowerCase().includes(term) ||
+                  booking.VOO?.toLowerCase().includes(term) ||
+                  booking.SERVICO?.toLowerCase().includes(term) ||
+                  booking.VEICULO?.toLowerCase().includes(term) ||
+                  booking.OPERADOR?.toLowerCase().includes(term) ||
+                  booking.DATA_DO_AGENDAMENTO?.toLowerCase().includes(term) ||
                   booking.DROPOFF?.toLowerCase().includes(term)
           );
         }
 
         // Se não houver busca, mostra apenas as reservas do dia
-        return bookings.filter((booking) => booking.BOOKING_DATE === today);
+        return bookings.filter((booking) => booking.DATA_DO_AGENDAMENTO === today);
     }, [bookings, searchTerm]);
 
     // Mutação para adicionar uma nova reserva e atualizar o cache

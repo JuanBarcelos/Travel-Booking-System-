@@ -13,10 +13,10 @@ export default function CardBooking({ onClick, Bookings }) {
           <div className="booking-warpper">
             <div className="booking-hearder">
               <div className="title">
-                <span>{booking.REQUESTING}</span>
+                <span>{booking.SOLICITANTE}</span>
                 <p className="booking-timer">
                   <Clock size={24} />
-                  {booking.SERVICE_HOUR}
+                  {booking.H_SERVICO}
                 </p>
               </div>
               <p className="booking-code">{booking.ID}</p>
@@ -29,9 +29,9 @@ export default function CardBooking({ onClick, Bookings }) {
             <div className="footer">
               <p>
                 <CalendarBlank size={24} />
-                {formatDate(booking.SERVICE_DATE)}
+                {formatDate(booking.DATA)}
               </p>
-              <span>{booking.SERVICE_TYPE}</span>
+              <span>{booking.SERVICO}</span>
             </div>
           </div>
         </div>

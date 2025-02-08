@@ -45,120 +45,120 @@ export default function Booking() {
           <form onSubmit={handleSubmit(onPreview)}id="booking-form" className="form">
             <div className="form-inputs-container">
               <div className="booking-input-group">
-                <label htmlFor="REQUESTING">
+                <label htmlFor="SOLICITANTE">
                   Nome do Solicitante / Requester Name
                 </label>
                 <input
-                  id="REQUESTING"
+                  id="SOLICITANTE"
                   type="text"
                   placeholder="Digite seu Usuário"
-                  {...register("REQUESTING")}
+                  {...register("SOLICITANTE")}
                 />
-                {errors.REQUESTING && <p className="formError">{errors.REQUESTING.message}</p>}
+                {errors.SOLICITANTE && <p className="formError">{errors.SOLICITANTE.message}</p>}
               </div>
               <div className="form-inputs-content">
                 <div className="booking-input-group">
-                  <label htmlFor="CUSTOMER_NAME">Nome do Cliente / Client Name</label>
+                  <label htmlFor="CLIENTE">Nome do Cliente / Client Name</label>
                   <input
-                    id="CUSTOMER_NAME"
+                    id="CLIENTE"
                     type="text"
                     placeholder="Digite seu Cliente"
-                    {...register("CUSTOMER_NAME")}
+                    {...register("CLIENTE")}
                   />
-                  {errors.CUSTOMER_NAME && <p className="formError">{errors.CUSTOMER_NAME.message}</p>}
+                  {errors.CLIENTE && <p className="formError">{errors.CLIENTE.message}</p>}
                 </div>
                 <div className="booking-input-group">
-                  <label htmlFor="CONTACT">
+                  <label htmlFor="CONTATO">
                     Contato do Cliente / Client Contact
                   </label>
                   <input
-                    id="CONTACT"
+                    id="CONTATO"
                     type="text"
                     placeholder="Digite o contato do cliente"
-                    {...register("CONTACT")}
+                    {...register("CONTATO")}
                   />
                 </div>
               </div>
               <div className="form-inputs-content">
                 <div className="booking-input-group">
-                  <label htmlFor="SERVICE_DATE">
+                  <label htmlFor="DATA">
                     Data do Serviço / Service Date
                   </label>
                   <input
-                    id="SERVICE_DATE"
+                    id="DATA"
                     type="date"
-                    {...register("SERVICE_DATE")}
+                    {...register("DATA")}
                   />
-                   {errors.SERVICE_DATE && <p className="formError">{errors.SERVICE_DATE.message}</p>}
+                   {errors.DATA && <p className="formError">{errors.DATA.message}</p>}
                 </div>
                 <div className="booking-input-group">
-                  <label htmlFor="SERVICE_HOUR">
+                  <label htmlFor="H_SERVICO">
                     Hora do Serviço / Service Time
                   </label>
                   <input
-                    id="SERVICE_HOUR"
+                    id="H_SERVICO"
                     type="time"
-                    {...register("SERVICE_HOUR")}
+                    {...register("H_SERVICO")}
                   />
-                  {errors.SERVICE_HOUR && <p className="formError">{errors.SERVICE_HOUR.message}</p>}
+                  {errors.H_SERVICO && <p className="formError">{errors.H_SERVICO.message}</p>}
                 </div>
                 <div className="booking-input-group">
-                  <label htmlFor="FLIGHT_NUMBER">Número do Voo / Flight Number</label>
+                  <label htmlFor="VOO">Número do Voo / Flight Number</label>
                   <input
-                    id="FLIGHT_NUMBER"
+                    id="VOO"
                     type="text"
                     placeholder="Digite o número do voo"
-                    {...register("FLIGHT_NUMBER")}
+                    {...register("VOO")}
                   />
                 </div>
               </div>
               <div className="form-inputs-content">
                 <div className="booking-input-group">
-                  <label htmlFor="PAX_NUMBER">
+                  <label htmlFor="PAX">
                     Número de Passageiros / Number of Passengers
                   </label>
                   <input
-                    id="PAX_NUMBER"
+                    id="PAX"
                     type="text"
                     placeholder="Digite o número de passageiros"
-                    {...register("PAX_NUMBER")}
+                    {...register("PAX")}
                   />
                 </div>
                 <div className="booking-input-group">
-                  <label htmlFor="SERVICE_TYPE">
+                  <label htmlFor="SERVICO">
                     Tipo de Serviço / Service Type
                   </label>
                   <input
-                    id="SERVICE_TYPE"
+                    id="SERVICO"
                     type="text"
                     placeholder="Digite o tipo de serviço"
-                    {...register("SERVICE_TYPE")}
+                    {...register("SERVICO")}
                   />
-                  {errors.SERVICE_TYPE && <p className="formError">{errors.SERVICE_TYPE.message}</p>}
+                  {errors.SERVICO && <p className="formError">{errors.SERVICO.message}</p>}
                 </div>
               </div>
               <div className="booking-input-group">
-                <label htmlFor="DRIVER_LANGUAGE">
+                <label htmlFor="MONO_BILINGUE">
                   Preferência de Motorista (Bilingue ou Monolíngue) / Driver
                   Preference (Bilingual or Monolingual)
                 </label>
                 <input
-                  id="DRIVER_LANGUAGE"
+                  id="MONO_BILINGUE"
                   type="text"
                   placeholder="Digite a preferência do motorista"
-                  {...register("DRIVER_LANGUAGE")}
+                  {...register("MONO_BILINGUE")}
                 />
               </div>
               <div className="booking-input-group">
-                <label htmlFor="VEHICLE_TYPE">Tipo de Veículo / Vehicle Type</label>
+                <label htmlFor="VEICULO">Tipo de Veículo / Vehicle Type</label>
                 <input
                   required
-                  id="VEHICLE_TYPE"
+                  id="VEICULO"
                   type="text"
                   placeholder="Digite o tipo de veículo"
-                  {...register("VEHICLE_TYPE")}
+                  {...register("VEICULO")}
                 />
-                {errors.VEHICLE_TYPE && <p className="formError">{errors.VEHICLE_TYPE.message}</p>}
+                {errors.VEICULO && <p className="formError">{errors.VEICULO.message}</p>}
               </div>
               <div className="booking-input-group">
                 <label htmlFor="PICKUP">
@@ -184,11 +184,11 @@ export default function Booking() {
                 />
               </div>
               <div className="booking-input-group">
-                <label htmlFor="OBSERVATION">Observações / Observations</label>
+                <label htmlFor="OBSERVACAO">Observações / Observations</label>
                 <textarea
-                  id="OBSERVATION"
+                  id="OBSERVACAO"
                   placeholder="Adicione observações"
-                  {...register("OBSERVATION")}
+                  {...register("OBSERVACAO")}
                 ></textarea>
               </div>
             </div>
