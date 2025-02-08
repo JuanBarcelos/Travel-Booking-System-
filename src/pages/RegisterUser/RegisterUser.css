@@ -167,4 +167,10 @@
         gap: 2.5rem;
         width: 100%;
     }
+
+    .form-inputs-content{
+        flex-direction: column;
+        gap: 1.8rem;
+    }
+
   }

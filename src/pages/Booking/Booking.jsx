@@ -10,6 +10,9 @@ import { bookingSchema } from "../../validations/bookingSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ModalBooking from "../../components/modal-booking-details/ModalBooking";
 import { useEffect } from "react";
+import { PhoneInputField } from "../../components/Inputs/PhoneInputField";
+import { CustomSelect } from "../../components/Inputs/CustomSelect";
+import { driverOptions, serviceOptions, veiculoOptions } from "../../script/optionsData";
 
 export default function Booking() {
   const { user } = useUser();
@@ -18,10 +21,17 @@ export default function Booking() {
   const {
     register,
     handleSubmit,
+    control,
     formState: {errors},
     reset,
   } = useForm({
-    resolver: yupResolver(bookingSchema)
+    resolver: yupResolver(bookingSchema),
+    defaultValues: {
+      CONTATO:"",
+      SERVICO:"",
+      VEICULO:"",
+      MONO_BILINGUE:""
+    }
   });
 
   // Registrar a função de reset no contexto
@@ -68,14 +78,11 @@ export default function Booking() {
                   {errors.CLIENTE && <p className="formError">{errors.CLIENTE.message}</p>}
                 </div>
                 <div className="booking-input-group">
-                  <label htmlFor="CONTATO">
-                    Contato do Cliente / Client Contact
-                  </label>
-                  <input
-                    id="CONTATO"
-                    type="text"
-                    placeholder="Digite o contato do cliente"
-                    {...register("CONTATO")}
+                  <PhoneInputField 
+                    control={control}
+                    name={'CONTATO'}
+                    label={'Contato do Cliente / Client Contact'}
+                    errors={errors}
                   />
                 </div>
               </div>
@@ -112,7 +119,7 @@ export default function Booking() {
                   />
                 </div>
               </div>
-              <div className="form-inputs-content">
+              <div className="form-inputs-content-group">
                 <div className="booking-input-group">
                   <label htmlFor="PAX">
                     Número de Passageiros / Number of Passengers
@@ -125,40 +132,32 @@ export default function Booking() {
                   />
                 </div>
                 <div className="booking-input-group">
-                  <label htmlFor="SERVICO">
-                    Tipo de Serviço / Service Type
-                  </label>
-                  <input
-                    id="SERVICO"
-                    type="text"
-                    placeholder="Digite o tipo de serviço"
-                    {...register("SERVICO")}
+                  <CustomSelect 
+                    control={control}
+                    name={'SERVICO'}
+                    label={`Tipo de Serviço / Service Type`}
+                    options={serviceOptions}
+                    errors={errors}
                   />
-                  {errors.SERVICO && <p className="formError">{errors.SERVICO.message}</p>}
                 </div>
-              </div>
-              <div className="booking-input-group">
-                <label htmlFor="MONO_BILINGUE">
-                  Preferência de Motorista (Bilingue ou Monolíngue) / Driver
-                  Preference (Bilingual or Monolingual)
-                </label>
-                <input
-                  id="MONO_BILINGUE"
-                  type="text"
-                  placeholder="Digite a preferência do motorista"
-                  {...register("MONO_BILINGUE")}
+                <div className="booking-input-group">
+                <CustomSelect 
+                  control={control}
+                  name={'MONO_BILINGUE'}
+                  label={`Preferência de Motorista/ Driver's language `}
+                  options={driverOptions}
+                  errors={errors}
                 />
               </div>
               <div className="booking-input-group">
-                <label htmlFor="VEICULO">Tipo de Veículo / Vehicle Type</label>
-                <input
-                  required
-                  id="VEICULO"
-                  type="text"
-                  placeholder="Digite o tipo de veículo"
-                  {...register("VEICULO")}
+                <CustomSelect 
+                  control={control}
+                  name={'VEICULO'}
+                  label={`Tipo de Veículo / Vehicle Type`}
+                  options={veiculoOptions}
+                  errors={errors}
                 />
-                {errors.VEICULO && <p className="formError">{errors.VEICULO.message}</p>}
+              </div>
               </div>
               <div className="booking-input-group">
                 <label htmlFor="PICKUP">

@@ -1,10 +1,14 @@
 .booking-conatiner{
     width: 100%;
+    height: 100vh;
 
     display: flex;
     flex-wrap: wrap;
 
     padding: 2rem 2rem 2rem 4rem; 
+}
+.special-label{
+    display: none;
 }
 
 #booking-form-section {
@@ -55,17 +59,16 @@
     gap: 1rem;
 }
 
-.form-inputs-content{
+.form-inputs-content-group{
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 4rem;
 }
 
-.form-inputs-content .booking-input-group {
+.form-inputs-content .booking-input-group,
+.form-inputs-content-group .booking-input-group{
     width: 100%;
 }
-
-
 
 .booking-input-group{
     display: flex;
@@ -81,7 +84,8 @@
     font-weight: 400;
 }
 
-.booking-input-group input{
+.booking-input-group input,
+.booking-input-group select{
     border-radius: 1rem;
     border: 1px solid var(--Stroke-Input, #CBD5E0);
     background: #FFF;
@@ -169,7 +173,8 @@
         padding: 2rem;
     }
 
-    .form-inputs-content{
+    .form-inputs-content,
+    .form-inputs-content-group{
         flex-direction: column;
         gap: 1.8rem;
     }
