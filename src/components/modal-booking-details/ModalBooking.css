@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-.modal-content {
+.modal-content-details {
     width: 90%;
     max-width: 87.5rem;
     padding: 4rem;
@@ -159,8 +159,10 @@
 }
 
 @media screen and (max-width: 430px) {
-    .modal-content {
-        padding: 2rem;
+    .modal-content-details {
+        padding: 1rem;
+        border-radius: 0;
+        border: none;
     }
 
     .close-button {
@@ -168,11 +170,11 @@
     }
 
     .detales-warpper .detales-title h2{
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
     .detales-warpper .detales-title h3{
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 
     .detales-warpper .detales-container{
@@ -187,7 +189,8 @@
     .detales-warpper .detales-container .detale-content .title ,
     .detales-warpper .detales-container .detale-content-observations .title{
         flex: 1;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+        font-weight: 600;
     }
 
     .detales-warpper .detales-container .detale-content .conteudo{
@@ -198,5 +201,12 @@
 
     .detales-warpper .detales-container .detale-content-observations .conteudo{
         font-size: 1.2rem;
+    }
+
+    .modal-actions .confirm-btn,
+    .modal-actions .cancel-btn{
+        width: 15rem;
+        height: 3rem;
+        font-size: 1.4rem;
     }
 }

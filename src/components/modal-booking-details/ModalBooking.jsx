@@ -12,7 +12,7 @@ export default function ModalBooking() {
   return (
     <>
       <div id="modal" className="modal">
-        <div className="modal-content">
+        <div className="modal-content-details">
           <div className="btn-content">
             <div className="close-button" onClick={closeModal}>
               <X size={16} />
@@ -101,7 +101,7 @@ export default function ModalBooking() {
                   Cancelar
                 </button>
                 <button className="confirm-btn" onClick={confirmBooking}>
-                  Confirmar Reserva
+                  Confirmar
                 </button>
               </div>
             )}
